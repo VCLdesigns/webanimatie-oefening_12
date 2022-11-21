@@ -138,171 +138,180 @@
         shuffle(deck);
         console.log(deck);
 
+        function dealCard(deck) {
+            return deck.shift();
+        }
+
         trekKaart.addEventListener("click", volgendeKaart);
         function volgendeKaart() {
-                
-console.log(deck[0])
+            console.log(deck[0]);
+            var card = dealCard(deck);
+            console.log(card);
+            console.log(card === {Value: 'A'} && {Suit: 'hearts'});
 
-            if (deck[0] == {Value: 'A', Suit: 'hearts'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/ace_of_hearts.png')"
+            if (card === {Value: 'A'} && {Suit: 'hearts'}) {
+                console.log("werkt");
+                getrokkenKaart.style.backgroundImage = "url('img/ace_of_hearts.png')";
             };
-            if (deck[0] == {Value: '2', Suit: 'hearts'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/2_of_hearts.png')"
+            if (card=== { Value: '2', Suit: 'hearts' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/2_of_hearts.png')";
             };
-            if (deck[0] == {Value: '3', Suit: 'hearts'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/3_of_hearts.png')"
+            if (card=== { Value: '3', Suit: 'hearts' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/3_of_hearts.png')";
             };
-            if (deck[0] == {Value: '4', Suit: 'hearts'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/4_of_hearts.png')"
+            if (card=== { Value: '4', Suit: 'hearts' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/4_of_hearts.png')";
             };
-            if (deck[0] == {Value: '5', Suit: 'hearts'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/5_of_hearts.png')"
+            if (card=== { Value: '5', Suit: 'hearts' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/5_of_hearts.png')";
             };
-            if (deck[0] == {Value: '6', Suit: 'hearts'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/6_of_hearts.png')"
+            if (card=== { Value: '6', Suit: 'hearts' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/6_of_hearts.png')";
             };
-            if (deck[0] == {Value: '7', Suit: 'hearts'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/7_of_hearts.png')"
+            if (card=== { Value: '7', Suit: 'hearts' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/7_of_hearts.png')";
             };
-            if (deck[0] == {Value: '8', Suit: 'hearts'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/8_of_hearts.png')"
+            if (card=== { Value: '8', Suit: 'hearts' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/8_of_hearts.png')";
             };
-            if (deck[0] == {Value: '9', Suit: 'hearts'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/9_of_hearts.png')"
+            if (card=== { Value: '9', Suit: 'hearts' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/9_of_hearts.png')";
             };
-            if (deck[0] == {Value: '10', Suit: 'hearts'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/10_of_hearts.png')"
+            if (card=== { Value: '10', Suit: 'hearts' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/10_of_hearts.png')";
             };
-            if (deck[0] == {Value: 'J', Suit: 'hearts'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/jack_of_hearts2.png')"
+            if (card=== { Value: 'J', Suit: 'hearts' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/jack_of_hearts2.png')";
             };
-            if (deck[0] == {Value: 'Q', Suit: 'hearts'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/queen_of_hearts2.png')"
-            };
-            if (deck[0] == {Value: 'K', Suit: 'hearts'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/king_of_hearts2.png')"
-            };
-            if (deck[0] == {Value: 'A', Suit: 'clubs'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/ace_of_clubs.png')"
-            };
-            if (deck[0] == {Value: '2', Suit: 'clubs'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/2_of_clubs.png')"
-            };
-            if (deck[0] == {Value: '3', Suit: 'clubs'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/3_of_clubs.png')"
-            };
-            if (deck[0] == {Value: '4', Suit: 'clubs'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/4_of_clubs.png')"
-            };
-            if (deck[0] == {Value: '5', Suit: 'clubs'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/5_of_clubs.png')"
-            };
-            if (deck[0] == {Value: '6', Suit: 'clubs'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/6_of_clubs.png')"
-            };
-            if (deck[0] == {Value: '7', Suit: 'clubs'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/7_of_clubs.png')"
-            };
-            if (deck[0] == {Value: '8', Suit: 'clubs'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/8_of_clubs.png')"
-            };
-            if (deck[0] == {Value: '9', Suit: 'clubs'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/9_of_clubs.png')"
-            };
-            if (deck[0] == {Value: '10', Suit: 'clubs'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/10_of_clubs.png')"
-            };
-            if (deck[0] == {Value: 'J', Suit: 'clubs'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/jack_of_clubs2.png')"
-            };
-            if (deck[0] == {Value: 'Q', Suit: 'clubs'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/queen_of_clubs2.png')"
-            };
-            if (deck[0] == {Value: 'K', Suit: 'clubs'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/king_of_clubs2.png')"
-            };
-            if (deck[0] == {Value: 'A', Suit: 'spades'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/ace_of_spades.png')"
-            };
-            if (deck[0] == {Value: '2', Suit: 'spades'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/2_of_spades.png')"
-            };
-            if (deck[0] == {Value: '3', Suit: 'spades'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/3_of_spades.png')"
-            };
-            if (deck[0] == {Value: '4', Suit: 'spades'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/4_of_spades.png')"
-            };
-            if (deck[0] == {Value: '5', Suit: 'spades'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/5_of_spades.png')"
-            };
-            if (deck[0] == {Value: '6', Suit: 'spades'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/6_of_spades.png')"
-            };
-            if (deck[0] == {Value: '7', Suit: 'spades'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/7_of_spades.png')"
-            };
-            if (deck[0] == {Value: '8', Suit: 'spades'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/8_of_spades.png')"
-            };
-            if (deck[0] == {Value: '9', Suit: 'spades'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/9_of_spades.png')"
-            };
-            if (deck[0] == {Value: '10', Suit: 'spades'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/10_of_spades.png')"
-            };
-            if (deck[0] == {Value: 'J', Suit: 'spades'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/jack_of_spades2.png')"
-            };
-            if (deck[0] == {Value: 'Q', Suit: 'spades'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/queen_of_spades2.png')"
+            if (card=== { Value: 'Q', Suit: 'hearts' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/queen_of_hearts2.png')";
+
 
             };
-            if (deck[0] == {Value: 'K', Suit: 'spades'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/king_of_spades2.png')"
+            if (card=== { Value: 'K', Suit: 'hearts' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/king_of_hearts2.png')";
             };
-            if (deck[0] == {Value: 'A', Suit: 'diamonds'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/ace_of_diamonds.png')"
+            if (card=== { Value: 'A', Suit: 'clubs' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/ace_of_clubs.png')";
             };
-            if (deck[0] == {Value: '2', Suit: 'diamonds'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/2_of_diamonds.png')"
+            if (card=== { Value: '2', Suit: 'clubs' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/2_of_clubs.png')";
             };
-            if (deck[0] == {Value: '3', Suit: 'diamonds'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/3_of_diamonds.png')"
+            if (card=== { Value: '3', Suit: 'clubs' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/3_of_clubs.png')";
             };
-            if (deck[0] == {Value: '4', Suit: 'diamonds'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/4_of_diamonds.png')"
+            if (card=== { Value: '4', Suit: 'clubs' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/4_of_clubs.png')";
             };
-            if (deck[0] == {Value: '5', Suit: 'diamonds'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/5_of_diamonds.png')"
+            if (card=== { Value: '5', Suit: 'clubs' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/5_of_clubs.png')";
             };
-            if (deck[0] == {Value: '6', Suit: 'diamonds'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/6_of_diamonds.png')"
+            if (card=== { Value: '6', Suit: 'clubs' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/6_of_clubs.png')";
             };
-            if (deck[0] == {Value: '7', Suit: 'diamonds'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/7_of_diamonds.png')"
+            if (card=== { Value: '7', Suit: 'clubs' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/7_of_clubs.png')";
             };
-            if (deck[0] == {Value: '8', Suit: 'diamonds'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/8_of_diamonds.png')"
+            if (card=== { Value: '8', Suit: 'clubs' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/8_of_clubs.png')";
             };
-            if (deck[0] == {Value: '9', Suit: 'diamonds'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/9_of_diamonds.png')"
+            if (card=== { Value: '9', Suit: 'clubs' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/9_of_clubs.png')";
             };
-            if (deck[0] == {Value: '10', Suit: 'diamonds'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/10_of_diamonds.png')"
+            if (card=== { Value: '10', Suit: 'clubs' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/10_of_clubs.png')";
             };
-            if (deck[0] == {Value: 'J', Suit: 'diamonds'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/jack_of_diamonds2.png')"
+            if (card=== { Value: 'J', Suit: 'clubs' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/jack_of_clubs2.png')";
             };
-            if (deck[0] == {Value: 'Q', Suit: 'diamonds'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/queen_of_diamonds2.png')"
+            if (card=== { Value: 'Q', Suit: 'clubs' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/queen_of_clubs2.png')";
             };
-            if (deck[0] == {Value: 'K', Suit: 'diamonds'}) {
-                getrokkenKaart.style.backgroundImage = "url('img/king_of_diamonds2.png')"
+            if (card=== { Value: 'K', Suit: 'clubs' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/king_of_clubs2.png')";
+            };
+            if (card=== { Value: 'A', Suit: 'spades' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/ace_of_spades.png')";
+            };
+            if (card=== { Value: '2', Suit: 'spades' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/2_of_spades.png')";
+            };
+            if (card=== { Value: '3', Suit: 'spades' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/3_of_spades.png')";
+            };
+            if (card=== { Value: '4', Suit: 'spades' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/4_of_spades.png')";
+            };
+            if (card=== { Value: '5', Suit: 'spades' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/5_of_spades.png')";
+            };
+            if (card=== { Value: '6', Suit: 'spades' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/6_of_spades.png')";
+            };
+            if (card=== { Value: '7', Suit: 'spades' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/7_of_spades.png')";
+            };
+            if (card=== { Value: '8', Suit: 'spades' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/8_of_spades.png')";
+            };
+            if (card=== { Value: '9', Suit: 'spades' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/9_of_spades.png')";
+            };
+            if (card=== { Value: '10', Suit: 'spades' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/10_of_spades.png')";
+            };
+            if (card=== { Value: 'J', Suit: 'spades' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/jack_of_spades2.png')";
+            };
+            if (card=== { Value: 'Q', Suit: 'spades' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/queen_of_spades2.png')";
+
+            };
+            if (card=== { Value: 'K', Suit: 'spades' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/king_of_spades2.png')";
+            };
+            if (card=== { Value: 'A', Suit: 'diamonds' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/ace_of_diamonds.png')";
+            };
+            if (card=== { Value: '2', Suit: 'diamonds' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/2_of_diamonds.png')";
+            };
+            if (card=== { Value: '3', Suit: 'diamonds' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/3_of_diamonds.png')";
+            };
+            if (card=== { Value: '4', Suit: 'diamonds' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/4_of_diamonds.png')";
+            };
+            if (card=== { Value: '5', Suit: 'diamonds' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/5_of_diamonds.png')";
+            };
+            if (card=== { Value: '6', Suit: 'diamonds' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/6_of_diamonds.png')";
+            };
+            if (card=== { Value: '7', Suit: 'diamonds' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/7_of_diamonds.png')";
+            };
+            if (card=== { Value: '8', Suit: 'diamonds' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/8_of_diamonds.png')";
+            };
+            if (card=== { Value: '9', Suit: 'diamonds' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/9_of_diamonds.png')";
+            };
+            if (card=== { Value: '10', Suit: 'diamonds' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/10_of_diamonds.png')";
+            };
+            if (card=== { Value: 'J', Suit: 'diamonds' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/jack_of_diamonds2.png')";
+            };
+            if (card=== { Value: 'Q', Suit: 'diamonds' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/queen_of_diamonds2.png')";
+            };
+            if (card=== { Value: 'K', Suit: 'diamonds' }) {
+                getrokkenKaart.style.backgroundImage = "url('img/king_of_diamonds2.png')";
             };
 
             /* deck.shift();*/
-                console.log(deck);
+            console.log(deck);
 
 
 
