@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<!--Set Language-->
+<html lang="en">
+
+<head>
+    <!--Define the character set used-->
+    <meta charset="UTF-8">
+    <!--https://www.thoughtco.com/xua-compatible-meta-tag-3469059-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--Define keywords for search engines-->
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <!--Define a description of your web page-->
+    <meta name="description" content="Exercises for my education">
+    <!--Define the author of a page-->
+    <meta name="author" content="Bart Victor Loots">
+    <!--Setting the viewport to make your website look good on all devices-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Link external stylesheet-->
+    <link rel="stylesheet" href="css/style.css">
+    <!--favicon: https://www.w3schools.com/html/html_favicon.asp-->
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon//favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon//favicon-16x16.png">
+    <!--Define the title of your webpage-->
+    <title>Oefening 12</title>
+</head>
+
+<body>
+    <div id="container">
+        <header>
+            <h1>Oefening 12: Moord Koning</h1>
+        </header>
+        <main>
+
+            <div id="speeldveld">
+                <div id="textbox"></div>
+                <div id="dek"></div>
+                <div id="kaart_getrokken"></div>
+            </div>
+        </main>
+        <footer>
+            <h6>Bart Victor Loots &copy 2022</h6>
+            <h6>Webanimatie2 @ Encora</h6>
+        </footer>
+    </div>
+    <script>
+        /*
+              Analyze:
+              Leg voor elk van de vier vars uit waarom ze van belang zijn.
+                  var trigger: zorgt voor de functie "schieten"
+                  var feedBack: zorgt ervoor dat je weet of je dood bent.
+                  var huidigePoging: Zorgt ervoor dat je weet hoe vaak je hebt geschoten, alvorens dood te gaan.
+                  var kamers: zorgt voor de 6 kamers waarin 1 kogel kan terecht komen.
+              Omschrijf hoe het komt dat de kogel in een willekeurige kamer terecht gaat komen.
+                  var willekeurig geeft een naar beneden afgerond getal van 0 tot en met 5. Deze word dan ingeladen bij kamers[willekeurig]. Hierdoor weten we in welke kamer de kogel zit.
+              Omschrijf waarom het if-statement in een function staat en wat het doet.
+                  var willekeurig verteld ons in welke kamer de kogel is geladen. var heeftKogel gaat elke plek in de nodelist kamers af door var huidigePoging. ALs hij die vind dan -> Dood, anders -> leven
+              */
+
+        /*
+         var trigger = document.querySelector("#trigger");
+         var feedBack = document.querySelector("#feedBack");
+         var huidigePoging = 0;
+         var kamers = [false, false, false, false, false, false];
+         var reset = document.getElementById("reload");
+       
+        
+
+        //kogel in random kamer plaatsen
+        var willekeurig = Math.floor(Math.random() * 6);
+        kamers[willekeurig] = true;
+
+        //schiet Mechaniek
+        trigger.addEventListener("click", schiet);
+
+        function schiet(evt) {
+
+            var heeftKogel = kamers[huidigePoging];
+
+            if (heeftKogel == true) {
+                //dood
+                feedBack.innerHTML = "<strong>BANG!!!</strong><p>Refresh to play again</p>";
+            } else {
+                //leven
+                feedBack.innerHTML = "klik " + huidigePoging;
+            }
+
+            huidigePoging++;
+            console.log(huidigePoging);
+        }
+        //resetKnop: opnieuw laden pagina of: 
+        reset.addEventListener("click", init);
+        function init() {
+            huidigePoging = 0;
+            kamers = [false, false, false, false, false, false];
+            var willekeurig = Math.floor(Math.random() * 6);
+            kamers[willekeurig] = true;
+            console.log(huidigePoging);
+        }
+        init();
+ */
+
+        var trekKaart = document.getElementById("dek");
+        var getrokkenKaart = document.getElementById("kaart_getrokken");
+        var textbox = document.getElementById("textbox");
+
+        var suits = ["spades", "diamonds", "clubs", "hearts"];
+        var values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+
+        function getDeck() {
+            var deck = new Array();
+
+            for (let i = 0; i < suits.length; i++) {
+                for (let x = 0; x < values.length; x++) {
+                    let card = { Value: values[x], Suit: suits[i] };
+                    deck.push(card);
+                }
+            }
+
+            return deck;
+        }
+        getDeck();
+        deck = getDeck();
+
+        function shuffle(deck) {
+            // for 1000 turns
+            // switch the values of two random cards
+            for (var i = 0; i < 1000; i++) {
+                var location1 = Math.floor((Math.random() * deck.length));
+                var location2 = Math.floor((Math.random() * deck.length));
+                var tmp = deck[location1];
+
+                deck[location1] = deck[location2];
+                deck[location2] = tmp;
+            }
+
+        }
+        shuffle(deck);
+        console.log(deck);
+
+        trekKaart.addEventListener("click", volgendeKaart);
+        function volgendeKaart() {
+                
+console.log(deck[0])
+
+            if (deck[0] == {Value: 'A', Suit: 'hearts'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/ace_of_hearts.png')"
+            };
+            if (deck[0] == {Value: '2', Suit: 'hearts'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/2_of_hearts.png')"
+            };
+            if (deck[0] == {Value: '3', Suit: 'hearts'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/3_of_hearts.png')"
+            };
+            if (deck[0] == {Value: '4', Suit: 'hearts'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/4_of_hearts.png')"
+            };
+            if (deck[0] == {Value: '5', Suit: 'hearts'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/5_of_hearts.png')"
+            };
+            if (deck[0] == {Value: '6', Suit: 'hearts'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/6_of_hearts.png')"
+            };
+            if (deck[0] == {Value: '7', Suit: 'hearts'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/7_of_hearts.png')"
+            };
+            if (deck[0] == {Value: '8', Suit: 'hearts'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/8_of_hearts.png')"
+            };
+            if (deck[0] == {Value: '9', Suit: 'hearts'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/9_of_hearts.png')"
+            };
+            if (deck[0] == {Value: '10', Suit: 'hearts'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/10_of_hearts.png')"
+            };
+            if (deck[0] == {Value: 'J', Suit: 'hearts'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/jack_of_hearts2.png')"
+            };
+            if (deck[0] == {Value: 'Q', Suit: 'hearts'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/queen_of_hearts2.png')"
+            };
+            if (deck[0] == {Value: 'K', Suit: 'hearts'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/king_of_hearts2.png')"
+            };
+            if (deck[0] == {Value: 'A', Suit: 'clubs'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/ace_of_clubs.png')"
+            };
+            if (deck[0] == {Value: '2', Suit: 'clubs'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/2_of_clubs.png')"
+            };
+            if (deck[0] == {Value: '3', Suit: 'clubs'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/3_of_clubs.png')"
+            };
+            if (deck[0] == {Value: '4', Suit: 'clubs'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/4_of_clubs.png')"
+            };
+            if (deck[0] == {Value: '5', Suit: 'clubs'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/5_of_clubs.png')"
+            };
+            if (deck[0] == {Value: '6', Suit: 'clubs'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/6_of_clubs.png')"
+            };
+            if (deck[0] == {Value: '7', Suit: 'clubs'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/7_of_clubs.png')"
+            };
+            if (deck[0] == {Value: '8', Suit: 'clubs'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/8_of_clubs.png')"
+            };
+            if (deck[0] == {Value: '9', Suit: 'clubs'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/9_of_clubs.png')"
+            };
+            if (deck[0] == {Value: '10', Suit: 'clubs'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/10_of_clubs.png')"
+            };
+            if (deck[0] == {Value: 'J', Suit: 'clubs'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/jack_of_clubs2.png')"
+            };
+            if (deck[0] == {Value: 'Q', Suit: 'clubs'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/queen_of_clubs2.png')"
+            };
+            if (deck[0] == {Value: 'K', Suit: 'clubs'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/king_of_clubs2.png')"
+            };
+            if (deck[0] == {Value: 'A', Suit: 'spades'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/ace_of_spades.png')"
+            };
+            if (deck[0] == {Value: '2', Suit: 'spades'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/2_of_spades.png')"
+            };
+            if (deck[0] == {Value: '3', Suit: 'spades'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/3_of_spades.png')"
+            };
+            if (deck[0] == {Value: '4', Suit: 'spades'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/4_of_spades.png')"
+            };
+            if (deck[0] == {Value: '5', Suit: 'spades'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/5_of_spades.png')"
+            };
+            if (deck[0] == {Value: '6', Suit: 'spades'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/6_of_spades.png')"
+            };
+            if (deck[0] == {Value: '7', Suit: 'spades'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/7_of_spades.png')"
+            };
+            if (deck[0] == {Value: '8', Suit: 'spades'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/8_of_spades.png')"
+            };
+            if (deck[0] == {Value: '9', Suit: 'spades'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/9_of_spades.png')"
+            };
+            if (deck[0] == {Value: '10', Suit: 'spades'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/10_of_spades.png')"
+            };
+            if (deck[0] == {Value: 'J', Suit: 'spades'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/jack_of_spades2.png')"
+            };
+            if (deck[0] == {Value: 'Q', Suit: 'spades'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/queen_of_spades2.png')"
+
+            };
+            if (deck[0] == {Value: 'K', Suit: 'spades'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/king_of_spades2.png')"
+            };
+            if (deck[0] == {Value: 'A', Suit: 'diamonds'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/ace_of_diamonds.png')"
+            };
+            if (deck[0] == {Value: '2', Suit: 'diamonds'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/2_of_diamonds.png')"
+            };
+            if (deck[0] == {Value: '3', Suit: 'diamonds'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/3_of_diamonds.png')"
+            };
+            if (deck[0] == {Value: '4', Suit: 'diamonds'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/4_of_diamonds.png')"
+            };
+            if (deck[0] == {Value: '5', Suit: 'diamonds'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/5_of_diamonds.png')"
+            };
+            if (deck[0] == {Value: '6', Suit: 'diamonds'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/6_of_diamonds.png')"
+            };
+            if (deck[0] == {Value: '7', Suit: 'diamonds'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/7_of_diamonds.png')"
+            };
+            if (deck[0] == {Value: '8', Suit: 'diamonds'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/8_of_diamonds.png')"
+            };
+            if (deck[0] == {Value: '9', Suit: 'diamonds'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/9_of_diamonds.png')"
+            };
+            if (deck[0] == {Value: '10', Suit: 'diamonds'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/10_of_diamonds.png')"
+            };
+            if (deck[0] == {Value: 'J', Suit: 'diamonds'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/jack_of_diamonds2.png')"
+            };
+            if (deck[0] == {Value: 'Q', Suit: 'diamonds'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/queen_of_diamonds2.png')"
+            };
+            if (deck[0] == {Value: 'K', Suit: 'diamonds'}) {
+                getrokkenKaart.style.backgroundImage = "url('img/king_of_diamonds2.png')"
+            };
+
+            /* deck.shift();*/
+                console.log(deck);
+
+
+
+        }
+
+
+
+
+    </script>
+
+    <!--
+remove all kings but the Suicide King
+If you draw the Suicide king, you lose
+Depending on the last card drawn you draw:
+2–10: the next player draws 1 cards
+Jack: the next player draws 2 cards
+Queen: the next player draws 3 cards
+Ace: the next player draws 4 cards
+Hearts (the color of the suicide king): instead of next player, you go again
+Joker: you go again, drawing cards until all 4 ‘colors’ have been drawn.
+
+-->
+</body>
+
+</html>
