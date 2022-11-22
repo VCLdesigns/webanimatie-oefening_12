@@ -47,7 +47,7 @@
                 <div id="start">
                     <h3>Start</h3>
                 </div>
-            
+
             </div>
 
 
@@ -164,7 +164,7 @@
 
             var i = 0;
             var txt = "\nEr word een Moord Koning aangeduid.\nDe kaarten worden geschud.\nKlaar om te spelen!\nTrek een kaart."
-            var speed = 25;
+            var speed = 10;
 
             function typeWriter() {
                 if (i < txt.length) {
@@ -224,19 +224,25 @@
                         moordKoningGevonden();
                     } else {
                         winnaarKoning.push(true);
-                        var i = 0;
-                        var txt = "\nEen Goede Koning Gevonden!"
-                        var speed = 25;
+                        if (winnaarKoning[0] === true && winnaarKoning[1] === true && winnaarKoning[2] === true) {
+                            trekKaart.removeEventListener("click", volgendeKaart);
+                            gewonnen();
+                        } else {
 
-                        function typeWriter() {
-                            if (i < txt.length) {
-                                textbox.innerHTML += txt.charAt(i);
-                                i++;
-                                setTimeout(typeWriter, speed);
+
+                            var i = 0;
+                            var txt = "\nEen Goede Koning Gevonden!"
+                            var speed = 10;
+
+                            function typeWriter() {
+                                if (i < txt.length) {
+                                    textbox.innerHTML += txt.charAt(i);
+                                    i++;
+                                    setTimeout(typeWriter, speed);
+                                }
                             }
+                            typeWriter();
                         }
-                        typeWriter();
-                        console.log(winnaarKoning);
                     }
                 };
                 if (card.Value === 'A' && card.Suit === 'clubs') {
@@ -280,22 +286,28 @@
                     if (moordKoning === 2) {
                         trekKaart.removeEventListener("click", volgendeKaart);
                         moordKoningGevonden();
-                        
+
                     } else {
                         winnaarKoning.push(true);
-                        var i = 0;
-                        var txt = "\nEen Goede Koning Gevonden!"
-                        var speed = 25;
+                        if (winnaarKoning[0] === true && winnaarKoning[1] === true && winnaarKoning[2] === true) {
+                            trekKaart.removeEventListener("click", volgendeKaart);
+                            gewonnen();
+                        } else {
 
-                        function typeWriter() {
-                            if (i < txt.length) {
-                                textbox.innerHTML += txt.charAt(i);
-                                i++;
-                                setTimeout(typeWriter, speed);
+
+                            var i = 0;
+                            var txt = "\nEen Goede Koning Gevonden!"
+                            var speed = 10;
+
+                            function typeWriter() {
+                                if (i < txt.length) {
+                                    textbox.innerHTML += txt.charAt(i);
+                                    i++;
+                                    setTimeout(typeWriter, speed);
+                                }
                             }
+                            typeWriter();
                         }
-                        typeWriter();
-                        console.log(winnaarKoning);
                     }
                 };
                 if (card.Value === 'A' && card.Suit === 'spades') {
@@ -339,22 +351,28 @@
                     if (moordKoning === 3) {
                         trekKaart.removeEventListener("click", volgendeKaart);
                         moordKoningGevonden();
-            
+
                     } else {
                         winnaarKoning.push(true);
-                        var i = 0;
-                        var txt = "\nEen Goede Koning Gevonden!"
-                        var speed = 25;
+                        if (winnaarKoning[0] === true && winnaarKoning[1] === true && winnaarKoning[2] === true) {
+                            trekKaart.removeEventListener("click", volgendeKaart);
+                            gewonnen();
+                        } else {
 
-                        function typeWriter() {
-                            if (i < txt.length) {
-                                textbox.innerHTML += txt.charAt(i);
-                                i++;
-                                setTimeout(typeWriter, speed);
+
+                            var i = 0;
+                            var txt = "\nEen Goede Koning Gevonden!"
+                            var speed = 10;
+
+                            function typeWriter() {
+                                if (i < txt.length) {
+                                    textbox.innerHTML += txt.charAt(i);
+                                    i++;
+                                    setTimeout(typeWriter, speed);
+                                }
                             }
+                            typeWriter();
                         }
-                        typeWriter();
-                        console.log(winnaarKoning);
                     }
                 };
                 if (card.Value === 'A' && card.Suit === 'diamonds') {
@@ -399,36 +417,38 @@
                         trekKaart.removeEventListener("click", volgendeKaart);
                         moordKoningGevonden();
                     } else {
-                        
                         winnaarKoning.push(true);
-                        var i = 0;
-                        var txt = "\nEen Goede Koning Gevonden!"
-                        var speed = 25;
+                        if (winnaarKoning[0] === true && winnaarKoning[1] === true && winnaarKoning[2] === true) {
+                            trekKaart.removeEventListener("click", volgendeKaart);
+                            gewonnen();
+                        } else {
 
-                        function typeWriter() {
-                            if (i < txt.length) {
-                                textbox.innerHTML += txt.charAt(i);
-                                i++;
-                                setTimeout(typeWriter, speed);
+
+                            var i = 0;
+                            var txt = "\nEen Goede Koning Gevonden!"
+                            var speed = 10;
+
+                            function typeWriter() {
+                                if (i < txt.length) {
+                                    textbox.innerHTML += txt.charAt(i);
+                                    i++;
+                                    setTimeout(typeWriter, speed);
+                                }
                             }
+                            typeWriter();
                         }
-                        typeWriter();
-                        console.log(winnaarKoning);
 
                     }
                 };
-                if (winnaarKoning[0] === true && winnaarKoning[1] === true && winnaarKoning[2] === true) {
-                    trekKaart.removeEventListener("click", volgendeKaart);
-                    gewonnen();
-                }
+
 
             }
         }
         function moordKoningGevonden() {
-           
+
             var i = 0;
             var txt = "\nDe Moordkoning is gevonden!\n\nGAME OVER"
-            var speed = 25;
+            var speed = 10;
 
             function typeWriter() {
                 if (i < txt.length) {
@@ -443,7 +463,7 @@
         function gewonnen() {
             var i = 0;
             var txt = "\nAlle goede koningen werden gevonden!\n\nWINNER"
-            var speed = 25;
+            var speed = 10;
 
             function typeWriter() {
                 if (i < txt.length) {
@@ -459,7 +479,7 @@
         function spelregelLatenZien(evt) {
             var i = 0;
             var txt = "\nVind alle Goede Koningen om te winnen, maar pas op voor de Moord Koning!\nAls je de Moord Koning vind, dan verlies je.\n\nDe spelregels:\nAls deze kaart trekt: dan gebeurt het volgende.\nKaarten 2 tot 10: de volgende speler trekt 1 kaart.\nBoer: De volgende speler trekt 2 kaarten.\nKoningin: De volgende speler trekt 3 kaarten.\nAas: De volgende speler trekt 4 kaarten.\n\n"
-            var speed = 25;
+            var speed = 10;
 
             function typeWriter() {
                 if (i < txt.length) {
@@ -470,7 +490,7 @@
             }
             typeWriter();
         }
-    
+
 
 
     </script>
