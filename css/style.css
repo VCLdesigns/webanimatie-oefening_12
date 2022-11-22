@@ -1,36 +1,11 @@
 /* © Victor Loots, 2022
 /*
 /* Fonts */
-@font-face {
-  font-family: "domineregular";
-  src: url("../fonts/domine-regular-webfont.eot");
-  src: url("../fonts/domine-regular-webfont.eot?#iefix")
-      format("embedded-opentype"),
-    url("../fonts/domine-regular-webfont.woff2") format("woff2"),
-    url("../fonts/domine-regular-webfont.woff") format("woff"),
-    url("../fonts/domine-regular-webfont.ttf") format("truetype"),
-    url("../fonts/domine-regular-webfont.svg#domineregular") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-  font-family: "montserratregular";
-  src: url("../fonts/montserrat-regular-webfont.eot");
-  src: url("../fonts/montserrat-regular-webfont.eot?#iefix")
-      format("embedded-opentype"),
-    url("../fonts/montserrat-regular-webfont.woff2") format("woff2"),
-    url("../fonts/montserrat-regular-webfont.woff") format("woff"),
-    url("../fonts/montserrat-regular-webfont.ttf") format("truetype"),
-    url("../fonts/montserrat-regular-webfont.svg#montserratregular")
-      format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
+
 @font-face {
   font-family: "open_sansregular";
   src: url("../fonts/opensans-regular-webfont.eot");
-  src: url("../fonts/opensans-regular-webfont.eot?#iefix")
-      format("embedded-opentype"),
+  src: url("../fonts/opensans-regular-webfont.eot?#iefix") format("embedded-opentype"),
     url("../fonts/opensans-regular-webfont.woff2") format("woff2"),
     url("../fonts/opensans-regular-webfont.woff") format("woff"),
     url("../fonts/opensans-regular-webfont.ttf") format("truetype"),
@@ -39,15 +14,29 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'poker_in_octoberdemo';
+  src: url('../fonts/pokerinoctoberdemo-dxm3-webfont.eot');
+  src: url('../fonts/pokerinoctoberdemo-dxm3-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/pokerinoctoberdemo-dxm3-webfont.woff2') format('woff2'),
+    url('../fonts/pokerinoctoberdemo-dxm3-webfont.woff') format('woff'),
+    url('../fonts/pokerinoctoberdemo-dxm3-webfont.ttf') format('truetype'),
+    url('../fonts/pokerinoctoberdemo-dxm3-webfont.svg#poker_in_octoberdemo') format('svg');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
 /*
 /* Variabelen */
 :root {
-  --font_titel: "domineregular", Georgia, serif;
-  --font_subtitel: "montserratregular", Verdana, sans-serif;
+  --font_titel: 'poker_in_octoberdemo', Georgia, serif;
+  --font_subtitel: 'poker_in_octoberdemo', Verdana, sans-serif;
   --font-brood: "open_sansregular", Verdana, sans-serif;
   --kleur_wit: #f8f7f3;
   --kleur_zwart: #303030;
 }
+
 /* 
 /* Reset */
 * {
@@ -55,6 +44,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 /*
 /* Standards */
 body {
@@ -64,51 +54,117 @@ body {
   font-family: var(--font-brood);
   font-size: 1rem;
   line-height: 1.5;
+  scroll-behavior: smooth;
 }
 
 #container {
-  padding: 2vh;
-}
-h1 {
-  text-align: center;
-  font-family: var(--font_titel);
-  padding: 25px 0;
-}
-
-
-#speeldveld{
-  width: 1200px;
-  height: 750px;
   margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  width: 80%;
+  max-width: 1200px;
 }
-#dek, #kaart_getrokken{
-  width: 500px;
-  height: 726px;
+
+h1 {
+  font-family: var(--font_titel);
+  font-weight: 900;
+  font-size: 7rem;
+  text-align: center;
+  padding: 2rem 0;
 }
-#dek{
-  background-image: url(../img/red_joker.png);
- 
+
+
+#speeldveld {
+  position: relative;
+  max-width: 1200px;
+  height: 100vh;
+  margin: 0 auto;
+  background-image: url(../img/playing_field.jpg);
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: cover;
 }
-#dek:hover{
+
+#dek,
+#kaart_getrokken,
+#textbox,
+#spelregels,
+#start,
+#reset {
+  position: absolute;
+}
+
+#dek,
+#kaart_getrokken {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  width: 250px;
+  height: 351.5px;
+}
+
+#dek {
+  background-image: url(../img/deck.png);
+  top: 10%;
+  left: 70%;
+}
+
+#dek:hover,
+#spelregels:hover,
+#start:hover {
   cursor: pointer;
 }
-#kaart_getrokken{
-background-color: aqua;
+
+#kaart_getrokken {
+  top: 10%;
+  left: 45%;
+  padding: 0 0 1rem 1rem;
 }
-footer{
+
+#textbox {
+  width: 750px;
+  height: 250px;
+  max-height: 250px;
+  background-color: #f8f7f3;
+  top: 60%;
+  left: 35%;
+  overflow: auto;
+  white-space: pre-wrap
+}
+#content {
+  width: 90%;
+  bottom:0px;
+  padding: 1rem;
+  position:absolute;
+
+}
+
+#top {
+  width: 100%;
+  min-height:120px;
+  padding-top:50px;
+}
+#bottom {
+  width: 100%;
+  padding:60px 10px 0 0;    
+}
+
+#spelregels,
+#start {
+  font-family: var(--font_subtitel);
+  bottom: -30px;
+}
+
+#spelregels {
+  left: 0;
+}
+
+#start {
+  right: 0;
+}
+
+
+
+footer {
   display: flex;
   justify-content: space-around;
-  font-family: var(--font_subtitel);
   margin: 4rem 0 2rem 0;
 }
-@media (min-width: 750px) {
-  #container {
-    margin: 0 auto;
-    width: 80%;
-    max-width: 1200px;
-  }
-}
-	

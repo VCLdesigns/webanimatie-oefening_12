@@ -28,15 +28,29 @@
 <body>
     <div id="container">
         <header>
-            <h1>Oefening 12: Moord Koning</h1>
+            <h1>Moord Koning</h1>
         </header>
         <main>
 
             <div id="speeldveld">
-                <div id="textbox"></div>
                 <div id="dek"></div>
                 <div id="kaart_getrokken"></div>
+                <div id="textbox">
+                    <div id="content">
+                        <div id="top"></div>
+                        <div id="bottom"></div>
+                    </div>
+                </div>
+                <div id="spelregels">
+                    <h3>Spelregels</h3>
+                </div>
+                <div id="start">
+                    <h3>Start</h3>
+                </div>
+            
             </div>
+
+
         </main>
         <footer>
             <h6>Bart Victor Loots &copy 2022</h6>
@@ -102,8 +116,9 @@
 
         var trekKaart = document.getElementById("dek");
         var getrokkenKaart = document.getElementById("kaart_getrokken");
-        var textbox = document.getElementById("textbox");
-
+        var textbox = document.getElementById("content");
+        var spelregels = document.getElementById("spelregels");
+        var startSpel = document.getElementById("start");
         var suits = ["spades", "diamonds", "clubs", "hearts"];
         var values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
 
@@ -116,11 +131,8 @@
                     deck.push(card);
                 }
             }
-
             return deck;
         }
-        getDeck();
-        deck = getDeck();
 
         function shuffle(deck) {
             // for 1000 turns
@@ -135,205 +147,334 @@
             }
 
         }
-        shuffle(deck);
-        console.log(deck);
 
         function dealCard(deck) {
             return deck.shift();
         }
 
-        trekKaart.addEventListener("click", volgendeKaart);
-        function volgendeKaart() {
-            console.log(deck[0]);
-            var card = dealCard(deck);
-            console.log(card);
-            console.log(card === {Value: 'A'} && {Suit: 'hearts'});
+        startSpel.addEventListener("click", spelStarten);
+        function spelStarten(evt) {
+            getDeck();
+            deck = getDeck();
+            shuffle(deck);
+            var kiesKoning = Math.floor(Math.random() * 3 + 1);
+            var moordKoning = kiesKoning;
+            var winnaarKoning = [];
+            console.log(moordKoning);
 
-            if (card === {Value: 'A'} && {Suit: 'hearts'}) {
-                console.log("werkt");
-                getrokkenKaart.style.backgroundImage = "url('img/ace_of_hearts.png')";
-            };
-            if (card=== { Value: '2', Suit: 'hearts' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/2_of_hearts.png')";
-            };
-            if (card=== { Value: '3', Suit: 'hearts' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/3_of_hearts.png')";
-            };
-            if (card=== { Value: '4', Suit: 'hearts' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/4_of_hearts.png')";
-            };
-            if (card=== { Value: '5', Suit: 'hearts' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/5_of_hearts.png')";
-            };
-            if (card=== { Value: '6', Suit: 'hearts' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/6_of_hearts.png')";
-            };
-            if (card=== { Value: '7', Suit: 'hearts' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/7_of_hearts.png')";
-            };
-            if (card=== { Value: '8', Suit: 'hearts' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/8_of_hearts.png')";
-            };
-            if (card=== { Value: '9', Suit: 'hearts' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/9_of_hearts.png')";
-            };
-            if (card=== { Value: '10', Suit: 'hearts' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/10_of_hearts.png')";
-            };
-            if (card=== { Value: 'J', Suit: 'hearts' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/jack_of_hearts2.png')";
-            };
-            if (card=== { Value: 'Q', Suit: 'hearts' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/queen_of_hearts2.png')";
+            var i = 0;
+            var txt = "\nEr word een Moord Koning aangeduid.\nDe kaarten worden geschud.\nKlaar om te spelen!\nTrek een kaart."
+            var speed = 25;
 
+            function typeWriter() {
+                if (i < txt.length) {
+                    textbox.innerHTML += txt.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, speed);
+                }
+            }
+            typeWriter();
 
-            };
-            if (card=== { Value: 'K', Suit: 'hearts' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/king_of_hearts2.png')";
-            };
-            if (card=== { Value: 'A', Suit: 'clubs' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/ace_of_clubs.png')";
-            };
-            if (card=== { Value: '2', Suit: 'clubs' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/2_of_clubs.png')";
-            };
-            if (card=== { Value: '3', Suit: 'clubs' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/3_of_clubs.png')";
-            };
-            if (card=== { Value: '4', Suit: 'clubs' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/4_of_clubs.png')";
-            };
-            if (card=== { Value: '5', Suit: 'clubs' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/5_of_clubs.png')";
-            };
-            if (card=== { Value: '6', Suit: 'clubs' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/6_of_clubs.png')";
-            };
-            if (card=== { Value: '7', Suit: 'clubs' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/7_of_clubs.png')";
-            };
-            if (card=== { Value: '8', Suit: 'clubs' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/8_of_clubs.png')";
-            };
-            if (card=== { Value: '9', Suit: 'clubs' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/9_of_clubs.png')";
-            };
-            if (card=== { Value: '10', Suit: 'clubs' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/10_of_clubs.png')";
-            };
-            if (card=== { Value: 'J', Suit: 'clubs' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/jack_of_clubs2.png')";
-            };
-            if (card=== { Value: 'Q', Suit: 'clubs' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/queen_of_clubs2.png')";
-            };
-            if (card=== { Value: 'K', Suit: 'clubs' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/king_of_clubs2.png')";
-            };
-            if (card=== { Value: 'A', Suit: 'spades' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/ace_of_spades.png')";
-            };
-            if (card=== { Value: '2', Suit: 'spades' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/2_of_spades.png')";
-            };
-            if (card=== { Value: '3', Suit: 'spades' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/3_of_spades.png')";
-            };
-            if (card=== { Value: '4', Suit: 'spades' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/4_of_spades.png')";
-            };
-            if (card=== { Value: '5', Suit: 'spades' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/5_of_spades.png')";
-            };
-            if (card=== { Value: '6', Suit: 'spades' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/6_of_spades.png')";
-            };
-            if (card=== { Value: '7', Suit: 'spades' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/7_of_spades.png')";
-            };
-            if (card=== { Value: '8', Suit: 'spades' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/8_of_spades.png')";
-            };
-            if (card=== { Value: '9', Suit: 'spades' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/9_of_spades.png')";
-            };
-            if (card=== { Value: '10', Suit: 'spades' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/10_of_spades.png')";
-            };
-            if (card=== { Value: 'J', Suit: 'spades' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/jack_of_spades2.png')";
-            };
-            if (card=== { Value: 'Q', Suit: 'spades' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/queen_of_spades2.png')";
+            trekKaart.addEventListener("click", volgendeKaart);
 
-            };
-            if (card=== { Value: 'K', Suit: 'spades' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/king_of_spades2.png')";
-            };
-            if (card=== { Value: 'A', Suit: 'diamonds' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/ace_of_diamonds.png')";
-            };
-            if (card=== { Value: '2', Suit: 'diamonds' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/2_of_diamonds.png')";
-            };
-            if (card=== { Value: '3', Suit: 'diamonds' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/3_of_diamonds.png')";
-            };
-            if (card=== { Value: '4', Suit: 'diamonds' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/4_of_diamonds.png')";
-            };
-            if (card=== { Value: '5', Suit: 'diamonds' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/5_of_diamonds.png')";
-            };
-            if (card=== { Value: '6', Suit: 'diamonds' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/6_of_diamonds.png')";
-            };
-            if (card=== { Value: '7', Suit: 'diamonds' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/7_of_diamonds.png')";
-            };
-            if (card=== { Value: '8', Suit: 'diamonds' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/8_of_diamonds.png')";
-            };
-            if (card=== { Value: '9', Suit: 'diamonds' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/9_of_diamonds.png')";
-            };
-            if (card=== { Value: '10', Suit: 'diamonds' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/10_of_diamonds.png')";
-            };
-            if (card=== { Value: 'J', Suit: 'diamonds' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/jack_of_diamonds2.png')";
-            };
-            if (card=== { Value: 'Q', Suit: 'diamonds' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/queen_of_diamonds2.png')";
-            };
-            if (card=== { Value: 'K', Suit: 'diamonds' }) {
-                getrokkenKaart.style.backgroundImage = "url('img/king_of_diamonds2.png')";
-            };
+            function volgendeKaart() {
+                var card = dealCard(deck);
+                console.log(deck);
 
-            /* deck.shift();*/
-            console.log(deck);
+                if (card.Value === 'A' && card.Suit === 'hearts') {
+                    getrokkenKaart.style.backgroundImage = "url('img/ace_of_hearts.png')";
+                };
+                if (card.Value === '2' && card.Suit === 'hearts') {
+                    getrokkenKaart.style.backgroundImage = "url('img/2_of_hearts.png')";
+                };
+                if (card.Value === '3' && card.Suit === 'hearts') {
+                    getrokkenKaart.style.backgroundImage = "url('img/3_of_hearts.png')";
+                };
+                if (card.Value === '4' && card.Suit === 'hearts') {
+                    getrokkenKaart.style.backgroundImage = "url('img/4_of_hearts.png')";
+                };
+                if (card.Value === '5' && card.Suit === 'hearts') {
+                    getrokkenKaart.style.backgroundImage = "url('img/5_of_hearts.png')";
+                };
+                if (card.Value === '6' && card.Suit === 'hearts') {
+                    getrokkenKaart.style.backgroundImage = "url('img/6_of_hearts.png')";
+                };
+                if (card.Value === '7' && card.Suit === 'hearts') {
+                    getrokkenKaart.style.backgroundImage = "url('img/7_of_hearts.png')";
+                };
+                if (card.Value === '8' && card.Suit === 'hearts') {
+                    getrokkenKaart.style.backgroundImage = "url('img/8_of_hearts.png')";
+                };
+                if (card.Value === '9' && card.Suit === 'hearts') {
+                    getrokkenKaart.style.backgroundImage = "url('img/9_of_hearts.png')";
+                };
+                if (card.Value === '10' && card.Suit === 'hearts') {
+                    getrokkenKaart.style.backgroundImage = "url('img/10_of_hearts.png')";
+                };
+                if (card.Value === 'J' && card.Suit === 'hearts') {
+                    getrokkenKaart.style.backgroundImage = "url('img/jack_of_hearts2.png')";
+                };
+                if (card.Value === 'Q' && card.Suit === 'hearts') {
+                    getrokkenKaart.style.backgroundImage = "url('img/queen_of_hearts2.png')";
+                };
+                if (card.Value === 'K' && card.Suit === 'hearts') {
+                    getrokkenKaart.style.backgroundImage = "url('img/king_of_hearts2.png')";
+                    if (moordKoning === 1) {
+                        trekKaart.removeEventListener("click", volgendeKaart);
+                        moordKoningGevonden();
+                    } else {
+                        winnaarKoning.push(true);
+                        var i = 0;
+                        var txt = "\nEen Goede Koning Gevonden!"
+                        var speed = 25;
 
+                        function typeWriter() {
+                            if (i < txt.length) {
+                                textbox.innerHTML += txt.charAt(i);
+                                i++;
+                                setTimeout(typeWriter, speed);
+                            }
+                        }
+                        typeWriter();
+                        console.log(winnaarKoning);
+                    }
+                };
+                if (card.Value === 'A' && card.Suit === 'clubs') {
+                    getrokkenKaart.style.backgroundImage = "url('img/ace_of_clubs.png')";
+                };
+                if (card.Value === '2' && card.Suit === 'clubs') {
+                    getrokkenKaart.style.backgroundImage = "url('img/2_of_clubs.png')";
+                };
+                if (card.Value === '3' && card.Suit === 'clubs') {
+                    getrokkenKaart.style.backgroundImage = "url('img/3_of_clubs.png')";
+                };
+                if (card.Value === '4' && card.Suit === 'clubs') {
+                    getrokkenKaart.style.backgroundImage = "url('img/4_of_clubs.png')";
+                };
+                if (card.Value === '5' && card.Suit === 'clubs') {
+                    getrokkenKaart.style.backgroundImage = "url('img/5_of_clubs.png')";
+                };
+                if (card.Value === '6' && card.Suit === 'clubs') {
+                    getrokkenKaart.style.backgroundImage = "url('img/6_of_clubs.png')";
+                };
+                if (card.Value === '7' && card.Suit === 'clubs') {
+                    getrokkenKaart.style.backgroundImage = "url('img/7_of_clubs.png')";
+                };
+                if (card.Value === '8' && card.Suit === 'clubs') {
+                    getrokkenKaart.style.backgroundImage = "url('img/8_of_clubs.png')";
+                };
+                if (card.Value === '9' && card.Suit === 'clubs') {
+                    getrokkenKaart.style.backgroundImage = "url('img/9_of_clubs.png')";
+                };
+                if (card.Value === '10' && card.Suit === 'clubs') {
+                    getrokkenKaart.style.backgroundImage = "url('img/10_of_clubs.png')";
+                };
+                if (card.Value === 'J' && card.Suit === 'clubs') {
+                    getrokkenKaart.style.backgroundImage = "url('img/jack_of_clubs2.png')";
+                };
+                if (card.Value === 'Q' && card.Suit === 'clubs') {
+                    getrokkenKaart.style.backgroundImage = "url('img/queen_of_clubs2.png')";
+                };
+                if (card.Value === 'K' && card.Suit === 'clubs') {
+                    getrokkenKaart.style.backgroundImage = "url('img/king_of_clubs2.png')";
+                    if (moordKoning === 2) {
+                        trekKaart.removeEventListener("click", volgendeKaart);
+                        moordKoningGevonden();
+                        
+                    } else {
+                        winnaarKoning.push(true);
+                        var i = 0;
+                        var txt = "\nEen Goede Koning Gevonden!"
+                        var speed = 25;
 
+                        function typeWriter() {
+                            if (i < txt.length) {
+                                textbox.innerHTML += txt.charAt(i);
+                                i++;
+                                setTimeout(typeWriter, speed);
+                            }
+                        }
+                        typeWriter();
+                        console.log(winnaarKoning);
+                    }
+                };
+                if (card.Value === 'A' && card.Suit === 'spades') {
+                    getrokkenKaart.style.backgroundImage = "url('img/ace_of_spades.png')";
+                };
+                if (card.Value === '2' && card.Suit === 'spades') {
+                    getrokkenKaart.style.backgroundImage = "url('img/2_of_spades.png')";
+                };
+                if (card.Value === '3' && card.Suit === 'spades') {
+                    getrokkenKaart.style.backgroundImage = "url('img/3_of_spades.png')";
+                };
+                if (card.Value === '4' && card.Suit === 'spades') {
+                    getrokkenKaart.style.backgroundImage = "url('img/4_of_spades.png')";
+                };
+                if (card.Value === '5' && card.Suit === 'spades') {
+                    getrokkenKaart.style.backgroundImage = "url('img/5_of_spades.png')";
+                };
+                if (card.Value === '6' && card.Suit === 'spades') {
+                    getrokkenKaart.style.backgroundImage = "url('img/6_of_spades.png')";
+                };
+                if (card.Value === '7' && card.Suit === 'spades') {
+                    getrokkenKaart.style.backgroundImage = "url('img/7_of_spades.png')";
+                };
+                if (card.Value === '8' && card.Suit === 'spades') {
+                    getrokkenKaart.style.backgroundImage = "url('img/8_of_spades.png')";
+                };
+                if (card.Value === '9' && card.Suit === 'spades') {
+                    getrokkenKaart.style.backgroundImage = "url('img/9_of_spades.png')";
+                };
+                if (card.Value === '10' && card.Suit === 'spades') {
+                    getrokkenKaart.style.backgroundImage = "url('img/10_of_spades.png')";
+                };
+                if (card.Value === 'J' && card.Suit === 'spades') {
+                    getrokkenKaart.style.backgroundImage = "url('img/jack_of_spades2.png')";
+                };
+                if (card.Value === 'Q' && card.Suit === 'spades') {
+                    getrokkenKaart.style.backgroundImage = "url('img/queen_of_spades2.png')";
+                };
+                if (card.Value === 'K' && card.Suit === 'spades') {
+                    getrokkenKaart.style.backgroundImage = "url('img/king_of_spades2.png')";
+                    if (moordKoning === 3) {
+                        trekKaart.removeEventListener("click", volgendeKaart);
+                        moordKoningGevonden();
+            
+                    } else {
+                        winnaarKoning.push(true);
+                        var i = 0;
+                        var txt = "\nEen Goede Koning Gevonden!"
+                        var speed = 25;
 
+                        function typeWriter() {
+                            if (i < txt.length) {
+                                textbox.innerHTML += txt.charAt(i);
+                                i++;
+                                setTimeout(typeWriter, speed);
+                            }
+                        }
+                        typeWriter();
+                        console.log(winnaarKoning);
+                    }
+                };
+                if (card.Value === 'A' && card.Suit === 'diamonds') {
+                    getrokkenKaart.style.backgroundImage = "url('img/ace_of_diamonds.png')";
+                };
+                if (card.Value === '2' && card.Suit === 'diamonds') {
+                    getrokkenKaart.style.backgroundImage = "url('img/2_of_diamonds.png')";
+                };
+                if (card.Value === '3' && card.Suit === 'diamonds') {
+                    getrokkenKaart.style.backgroundImage = "url('img/3_of_diamonds.png')";
+                };
+                if (card.Value === '4' && card.Suit === 'diamonds') {
+                    getrokkenKaart.style.backgroundImage = "url('img/4_of_diamonds.png')";
+                };
+                if (card.Value === '5' && card.Suit === 'diamonds') {
+                    getrokkenKaart.style.backgroundImage = "url('img/5_of_diamonds.png')";
+                };
+                if (card.Value === '6' && card.Suit === 'diamonds') {
+                    getrokkenKaart.style.backgroundImage = "url('img/6_of_diamonds.png')";
+                };
+                if (card.Value === '7' && card.Suit === 'diamonds') {
+                    getrokkenKaart.style.backgroundImage = "url('img/7_of_diamonds.png')";
+                };
+                if (card.Value === '8' && card.Suit === 'diamonds') {
+                    getrokkenKaart.style.backgroundImage = "url('img/8_of_diamonds.png')";
+                };
+                if (card.Value === '9' && card.Suit === 'diamonds') {
+                    getrokkenKaart.style.backgroundImage = "url('img/9_of_diamonds.png')";
+                };
+                if (card.Value === '10' && card.Suit === 'diamonds') {
+                    getrokkenKaart.style.backgroundImage = "url('img/10_of_diamonds.png')";
+                };
+                if (card.Value === 'J' && card.Suit === 'diamonds') {
+                    getrokkenKaart.style.backgroundImage = "url('img/jack_of_diamonds2.png')";
+                };
+                if (card.Value === 'Q' && card.Suit === 'diamonds') {
+                    getrokkenKaart.style.backgroundImage = "url('img/queen_of_diamonds2.png')";
+                };
+                if (card.Value === 'K' && card.Suit === 'diamonds') {
+                    getrokkenKaart.style.backgroundImage = "url('img/king_of_diamonds2.png')";
+                    if (moordKoning === 4) {
+                        trekKaart.removeEventListener("click", volgendeKaart);
+                        moordKoningGevonden();
+                    } else {
+                        
+                        winnaarKoning.push(true);
+                        var i = 0;
+                        var txt = "\nEen Goede Koning Gevonden!"
+                        var speed = 25;
+
+                        function typeWriter() {
+                            if (i < txt.length) {
+                                textbox.innerHTML += txt.charAt(i);
+                                i++;
+                                setTimeout(typeWriter, speed);
+                            }
+                        }
+                        typeWriter();
+                        console.log(winnaarKoning);
+
+                    }
+                };
+                if (winnaarKoning[0] === true && winnaarKoning[1] === true && winnaarKoning[2] === true) {
+                    trekKaart.removeEventListener("click", volgendeKaart);
+                    gewonnen();
+                }
+
+            }
+        }
+        function moordKoningGevonden() {
+           
+            var i = 0;
+            var txt = "\nDe Moordkoning is gevonden!\n\nGAME OVER"
+            var speed = 25;
+
+            function typeWriter() {
+                if (i < txt.length) {
+                    textbox.innerHTML += txt.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, speed);
+                }
+            }
+            typeWriter();
         }
 
+        function gewonnen() {
+            var i = 0;
+            var txt = "\nAlle goede koningen werden gevonden!\n\nWINNER"
+            var speed = 25;
 
+            function typeWriter() {
+                if (i < txt.length) {
+                    textbox.innerHTML += txt.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, speed);
+                }
+            }
+            typeWriter();
+        }
+
+        spelregels.addEventListener("click", spelregelLatenZien);
+        function spelregelLatenZien(evt) {
+            var i = 0;
+            var txt = "\nVind alle Goede Koningen om te winnen, maar pas op voor de Moord Koning!\nAls je de Moord Koning vind, dan verlies je.\n\nDe spelregels:\nAls deze kaart trekt: dan gebeurt het volgende.\nKaarten 2 tot 10: de volgende speler trekt 1 kaart.\nBoer: De volgende speler trekt 2 kaarten.\nKoningin: De volgende speler trekt 3 kaarten.\nAas: De volgende speler trekt 4 kaarten.\n\n"
+            var speed = 25;
+
+            function typeWriter() {
+                if (i < txt.length) {
+                    textbox.innerHTML += txt.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, speed);
+                }
+            }
+            typeWriter();
+        }
+    
 
 
     </script>
 
-    <!--
-remove all kings but the Suicide King
-If you draw the Suicide king, you lose
-Depending on the last card drawn you draw:
-2–10: the next player draws 1 cards
-Jack: the next player draws 2 cards
-Queen: the next player draws 3 cards
-Ace: the next player draws 4 cards
-Hearts (the color of the suicide king): instead of next player, you go again
-Joker: you go again, drawing cards until all 4 ‘colors’ have been drawn.
-
--->
 </body>
 
 </html>
