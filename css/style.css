@@ -34,7 +34,7 @@
   --font_subtitel: 'poker_in_octoberdemo', Verdana, sans-serif;
   --font-brood: "open_sansregular", Verdana, sans-serif;
   --kleur_wit: #f8f7f3;
-  --kleur_zwart: #303030;
+  --kleur_zwart: rgb(48, 48, 48);
 }
 
 /* 
@@ -77,6 +77,7 @@ h1 {
   max-width: 1200px;
   height: 100vh;
   margin: 0 auto;
+  border-radius: 10px;
   background-image: url(../img/playing_field.jpg);
   background-repeat: no-repeat;
   background-position: left center;
@@ -96,15 +97,20 @@ h1 {
 #kaart_getrokken {
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: contain;
+  background-size: cover;
   width: 250px;
-  height: 351.5px;
+  height: 363px;
+  border-radius: 12px;
+  top: 5%;
+  
 }
 
 #dek {
   background-image: url(../img/deck.png);
-  top: 10%;
+  
   left: 70%;
+ 
+  box-shadow: 4px 8px 8px rgba(48,48,48,0.8);
 }
 
 #dek:hover,
@@ -114,9 +120,10 @@ h1 {
 }
 
 #kaart_getrokken {
-  top: 10%;
+  
   left: 45%;
   padding: 0 0 1rem 1rem;
+  
 }
 
 #textbox {
@@ -124,33 +131,36 @@ h1 {
   height: 250px;
   max-height: 250px;
   background-color: #f8f7f3;
+  border-radius: 15px;
   top: 60%;
   left: 35%;
   overflow: auto;
   white-space: pre-wrap
 }
+
 #content {
   width: 90%;
-  bottom:0px;
-  padding: 1rem;
-  position:absolute;
+  bottom: 0px;
+  padding: 3rem;
+  position: absolute;
 
 }
 
 #top {
   width: 100%;
-  min-height:120px;
-  padding-top:50px;
+  min-height: 120px;
+  padding-top: 50px;
 }
+
 #bottom {
   width: 100%;
-  padding:60px 10px 0 0;    
+  padding: 60px 10px 0 0;
 }
 
 #spelregels,
 #start {
   font-family: var(--font_subtitel);
-  bottom: -30px;
+  top: -30px;
 }
 
 #spelregels {
